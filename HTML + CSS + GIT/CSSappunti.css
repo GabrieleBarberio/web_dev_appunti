@@ -1,0 +1,296 @@
+/*   style.css
+                        -SYNTAX-
+
+selettore {                 b
+    proprietà : valore ;    l
+    |----regola--------|    o
+}                           ck
+
+css si muove a cascata, dall'alto verso il basso e leggerà il nostro comando in questo modo
+
+
+                        -EREDITARIETA'-
+                 
+controllare ereditarietà: 
+*inherit : eredita dal genitore
+*initial : vai di default
+*unset   : lavora sul comportamento naturale dell'elemento
+
+*/
+/* il body sarà il genitore dell'h1 (in quanto contiene l'h1) */
+body{
+    color: red;
+}
+
+h1{
+    color: inherit;  /* prenderà il valore della proprietà color data al body*/
+    /* per resettare tutto 
+    all:unset 
+    
+    !important va oltre il punteggio e sovrascrive tutto il resto
+    */
+}
+
+/* 
+                        -SELETTORI-
+*/
+
+                    /* elementi (o di tipo) */
+h1 {
+color: aliceblue;
+}
+
+                    /*  di classe */
+.classe{
+    color: aliceblue;
+}
+
+                    /* selettori di attributo (seleziona solo l'elemento con quel determinato attributo) */
+a[title]{
+ background-color: aliceblue;
+}
+
+a[href="url"]{
+    background-color: aliceblue;
+} 
+
+a[class~= "special"]{ /* prendi un elemento che ha special come classe specifica o contenuta nella classe !(aspecial) */
+bottom: 2;
+}
+
+a[calss^="box-"]{ /* prendi un elemento che ha "box-" conenuto nella classe*/
+bottom: 2;
+}
+
+a[class$="-box"]{ /* deve finire con "-box"*/
+bottom: 2;
+}
+
+                        /* pseudo classi (stati specifici) */
+a:hover{
+size: medium;
+}
+
+a:visited{
+bottom:2 ;
+}
+                        /* pseudo elementi ( :: ) */
+p::first-line{ /*  prende la prima riga di p*/
+bottom: 2;
+}
+
+::before /*prima dell'elemento*/
+
+::after /* dopo l'elemento*/
+
+
+                            /* liste di selettori */
+
+h1, 
+p,
+.classe{
+    color: aliceblue;
+}
+
+                                /*  universale (*) */
+
+*{
+ color: aliceblue; /*  da questa regola a tutto il documento */
+}
+
+                                /* Combinatori */
+
+
+.box p{ /* prende tutti i p contenuti nelle classi box*/
+    color: aliceblue;
+}
+.box>p{ /* tutti i p contenuti direttamente nella classe box*/
+    color: aliceblue;
+}
+
+
+h1+p{ /* prendi il primo p che viene subito dopo h1*/
+    color: aliceblue;
+}
+/* 
+<div class="padre"> 
+    <div class="figlio"> 
+        <div class="nipote"> 
+        </div>
+    </div>
+</div>
+*/
+
+.padre .figlio .nipote{ /* percorso (vale anche con id contenuti e cose contenute nell'id " .classe .classe2 #id .classe p " questo può essere un percorso)*/
+    color: aliceblue;
+    
+}
+
+/* 
+                                -BOXMODEL-
+*/
+
+/* 
+                Block e inline box - display
+    Block:
+            (*)crea una nuova riga
+            (*)il box si espanderà fino ad occupare il 100% del container
+            (*)width e height sono rispettate
+            (*)padding, margin e border faranno allontanare altri elementi dal box
+    Inline: 
+            (*)non crea una nuova riga ma restano in linea
+            (*)width e height non vengono applicate
+            (*)vertical padding, margin e border si applicano ma non spostano altri elementi a differenza di quelli orizzontali
+
+    Display: FLEX & GRID cambia il comportamento interno
+             BLOCK rende l'elemento come un block element
+             INLINE-BLOCK unisce i due comportamenti, crea due blocchi in linea ( si possono applicare margin e padding top e bottom agli elementi inline)
+
+    MARGIN:  ↥ ↦ ↧ ↤ || 2px 2px 2px 2px
+    PADDING: ↥ ↦ ↧ ↤ || 2px 2px 2px 2px
+    BORDER: tipo(solid o dotted) Grandezza ( 3xp) Colore ( Red)
+            Troviamo altri comandi per border (border-top , border-bottom , border-right , border-left )
+            radius per arrotondare i bordi (border-top-left-radius, border-top-right-radius, ecc)
+    BACKGROUND:
+                -size per la misura (cover contain)
+                -image: url immagine o per più immagini => background-image: url(primo url), url(secondo url))
+                -repeat per decidere la ripetizione
+                -position (X/Y)
+                -color (anche linear gradient)
+                -attachment per definire il comportamentento nella pagina (scroll , fixed)
+            !!!!OCCHIO ALLA LEGGIBILITA'!!!!
+    IMMAGINI:
+                -height e width(occhio al ratio),
+                -object-fit:contain e cover
+    FORM:
+            è bene resettare il form per evitare lo styling dei browser
+            
+            button,
+            input,
+            select,
+            textarea {
+                font-family: ineherit;
+                font-size: 100%;
+                box-sizing: border-box;
+                padding: 0; margin: 0;
+            }
+            textarea{
+                overflow: auto;
+            }
+                                -OVERLFLOW-
+                per gestire la fuoriuscita di contenuti possiamo usare:
+                overflow (x-y) 
+                word-break: ha diversi comandi per gestire i conenuti di testo
+                overflow-wrap
+                              -UNITA' DI MISURA-
+
+
+///Misure assolute e relative
+
+em: fa riferimento al font-size del proprio parent
+ex
+ch
+rem: fa riferimento al font-size del root parent
+lh
+vmin 
+vmax
+vw = wievport width
+vh = viewport height
+///Percentuali
+10%
+
+
+///Numeri
+div{
+  opacity: 0.5;
+}
+
+///Colori
+div{
+  background-color: #FFFFFF;
+  border-top: solid 1px rgb(255, 240, 100);
+  border-bottom: solid 1px hsl(302, 20%, 60%);
+}
+
+///Posizionamento  (Top Left Right Bottom)
+div{
+Center
+  background-position: bottom;
+}
+
+
+///Stringhe
+div{
+  background-color: red;
+}
+
+///Funzioni con calc()
+div{
+  width: calc(20% + 100px);
+}
+
+                        -FONT E TESTO-
+
+
+font-family: "nome font, nelle virgolette se complesso ( più parole)" , oppure questo se non va, san-serif;
+font-size: dimensione font
+color: colore
+font-wight: grassetto, 100,200,300 fino a 900, bold o bolder;
+font-style: style, italic ecc;
+text-transform: capitalized, lowercase, uppercase;
+text-decoration: underline, overline, line-through;
+text-shadow: 2px 2px 2px black | ( distanza ombra orizzontale) (distanza verticale) (grado di sfumatura) colore;
+text-align: right, left, center;
+line-height: distanza tra una riga e l'altra;
+letter-spacing: distanza tra una lettera e l'altra;
+word-spacing:  distanza tra una parola e l'altra;
+
+                    -Usare WebFonts-
+
+@font-face{
+    font-family: "diamo noi il nome"
+    src: url(specifichiamo dove prendere il font)
+    per evitare problemi di compatibilità dei formati con in browser conviene inserire più source che ci assicuri che funzioni il font ovunque
+}
+dopo inseriamo la font-family nel body
+
+                          -LISTE-
+list-style-position: inside, outside
+
+ul{ list-style-type: suare, bullet ecc ( stile del pallino della lista ul )}
+
+ol{ list-style-type: upper-alpha(lettere), arabic, decimal, lower-roman, upper-roman;
+    list-style-image: url(image.svg)=> conviene ricreare a mano:
+    ul li{ backgound-image:
+            background-position:
+            background-size 
+            background-repeat
+            list-style-type:none                   
+                        }
+per partire da un conteggio preferito 
+<ol start="10">(
+    10. fjoiadshj
+    11. fhs
+    12. ...
+con reversed va al contrarioo
+<ol start="10 reversed">
+10. hufioh
+9.
+8.
+
+oppure il value nel tag <li value=12> == 12. iohosdho
+
+*/
+
+/* 
+                        -STYLING DEI LINK-   
+
+Ci sono 4 stati dei link
+link, visited, hover, focus, active
+
+
+
+
+
+
+                        */

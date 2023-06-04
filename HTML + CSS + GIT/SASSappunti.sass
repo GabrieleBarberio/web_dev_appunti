@@ -1,0 +1,229 @@
+// SCSS syntax
+    a{
+        text-decoration: none;
+        :hover{ // == a :hover ||==> &:hover == a:hover &(prende il diretto grado di parentela e riferisce il selector a quella)
+            color: red;
+            background-color: blue;
+            }
+        }
+// SASS syntax
+    a
+        text-decoration: none
+        &:hover
+            color: red
+            background-color: blue          
+          
+
+//variabile in scss "$scss-variable: red;"" può essere ridichiarata nel file come una riassegnazione in javascript
+
+$the-color: red;
+
+body
+    background-color: $the-color // == red
+
+$the-color: blue
+
+    .palla
+        background-color: $the-color // == blue
+
+//Possiamo effettutare operazioni adoperando le variabili:
+    $altezza: 100px
+    $larghezza: 50px
+    $area-rettangolo: $altezza * $larghezza
+
+//per effettuare operazioni con operatori di diverse unità di misura dobbiamo convertirle tramite convert(valore, unità di misura):
+    $altezza: 100px
+    $larghezza: 2em
+    $larghezza-in-pixel: convert($larghezza, px)
+    $area-rettangolo: $altezza * $larghezza-in-pixel
+// con le variabili possiamo creare delle mappe per riutilizzare i valori quando necessario tramite la funzione get-map($nome-variabile-mappa, "valore")
+// ecco alcuni esempi:
+    //MAP PER BREAKPOINTS
+        $breakpoint: (
+            "sm": 38em,
+            "mm": 48em,
+            "l": 75em)
+                /* Regole CSS per lo schermo "sm" */
+            @media (min-width: map-get($breakpoint, "sm")) 
+                /* Regole CSS per lo schermo "mm" */
+            @media (min-width: map-get($breakpoint, "mm")) 
+                /* Regole CSS per lo schermo "l" */
+            @media (min-width: map-get($breakpoint, "l")) 
+
+    //MAP PER COLORI
+        $colors: (
+            "primary": #0074d9,
+            "secondary": #3D9970,
+            "accent": #FF4136)
+        body
+            background-color: map-get($colors, "primary")
+    //MAP PER FONT
+        $fonts: (
+            "heading": "Roboto Slab, serif",
+            "body": "Open Sans, sans-serif")
+        h1
+            map-get($fonts, "heading")
+
+
+
+//Controllo del colore!
+    //SASS ci offre diverse funzioni per manipolare i colori eccone alcune:
+
+    adjust-color($color , $lightness ) //color è il colore (variabile, rgb, ..) lightness è il grado di lucentezza (- sarà più scuro, + sarà più luminoso)
+    lighten($color, $amount) //aumenta la luminosità del colore di un importo specificato. Il primo parametro $color è il colore di base e il secondo parametro $amount rappresenta l'importo di luminosità in percentuale o in un valore assoluto.
+    darken($color, $amount) // diminuisce la luminosità del colore di un importo specificato. Il primo parametro $color è il colore di base e il secondo parametro $amount rappresenta l'importo di luminosità in percentuale o in un valore assoluto.
+    saturate($color, $amount)// aumenta la saturazione del colore di un importo specificato. Il primo parametro $color è il colore di base e il secondo parametro $amount rappresenta l'importo di saturazione in percentuale o in un valore assoluto.
+    desaturate($color, $amount)// diminuisce la saturazione del colore di un importo specificato. Il primo parametro $color è il colore di base e il secondo parametro $amount rappresenta l'importo di saturazione in percentuale o in un valore assoluto.
+    adjust-hue($color, $degrees)// regola l'angolo di tonalità del colore di un certo numero di gradi. Il primo parametro $color è il colore di base e il secondo parametro $degrees rappresenta l'angolo di tonalità in gradi.
+    complement($color)// restituisce il colore complementare del colore di base.
+    invert($color) //inverte il colore di base, convertendolo in un colore complementare. Il primo parametro $color è il colore di base.
+
+//Moduli e Partials
+    //Partials come il nome ci fa intendere sono divisioni del codice in maniera strutturale e logica per facilitarne la la lettura e manutensione, una partials in sintesi è un
+    //file .scss / .sass che stilizzerà solo una parte o elemento del nostro progetto(navbar, una card, sidebar, footer, tabella ecc..) che verrà importato in un foglio di stile più ampio
+        //File _nav.sass (contiene la stilizzazione della navbar)
+        
+        @import 'nav'
+        //(nel nostro index abbiamo le regole di _nav.sass)
+
+    // un modulo invece è si un foglio di stile separato ma che conterrà delle regole riutilizzabili, in modo da facilitare la nostra scrittura e renderla più fluida (palette di colori, formattazione del testo, ecc)
+
+    //Entrambi possono essere importati tramite @import 'nomefile' (vanno nella stessa directory)
+    //per i moduli possiamo usare @use per poter usare una "keyword" per riutilizzare il modulo evitando di importare più volte e creando problemi
+        // Nel file SASS principale
+        @use "colori" as c
+
+        body 
+            background-color: c.$colore-di-sfondo//(variabile dichiarata nel modulo colori)
+        
+
+        // Nel file di stile per la navbar(partials)
+        @use "colori" as c
+
+        nav 
+         background-color: c.$colore-di-menu
+
+
+
+
+// EXTEND
+/* la keyword @extend ci permette di "estendere" le proprietà di una classe ad un'altra   */
+.classe
+    border: 2px solid black
+    color: blue  
+    background-color: grey 
+    font-size: 12px
+    
+.altra-classe
+    @extend .classe  //la classe .altra-classe erediterà tutte le proprietà di .classe
+    box-shadow: 1px 1px 1px black
+
+//possiamo adoperare @extend anche con selettori di tag e pseudoclassi
+
+a
+  color: blue
+  &:hover 
+    text-decoration: underline
+
+.button 
+  @extend a //in questo modo erediterà tutte le poprietà di a e di a:hover mantenendo però le proprietà specifiche
+  background-color: grey
+  padding: 10px
+  &:hover 
+    background-color: black
+
+
+/*Puoi accedere direttamente all'unificazione intelligente di Sass utilizzando le funzioni di selezione ! 
+ La selector.unify()funzione restituisce un selettore che corrisponde all'intersezione di due selettori, 
+    mentre la selector.extend()funzione funziona esattamente come @extend, ma su un singolo selettore. */
+
+
+
+// @mixin consente di definire un blocco di codice riutilizzabile che può essere richiamato all'interno di altri selettori o regole. 
+@mixin border-radius($radius) 
+    -webkit-border-radius: $radius
+    -moz-border-radius: $radius
+    -ms-border-radius: $radius
+    border-radius: $radius
+
+// per utilizzare il blocco creato con @mixin dobbiamo adoperare la keyword @include e gli argomenti desiderati
+
+.box 
+  @include border-radius(8px)
+
+//con mixin possiamo anche stilizzare un elemento in maniera unica e riutilizzare il codice cambiando solo una partte di questo esempio:
+    @mixin button($color, $border-width) // se dichiariamo il valore degli argomenti nel mixin creiamo gli argomenti di default
+        font-family: map-get($fonts, "body")
+        font-weight: 600
+        padding: 1rem
+        border: $border-width dotted map-get($colors, "primary" )
+        background-color: $color
+
+    .button-blue
+        @include button(red ,2px)
+//con argomenti impostati di default possiamo decidere di riassegnare loro il valore a seconda delle necessità ( @include button($border-width: 2px), in questo caso verrebbe riassegnato solo il secondo argomento)
+
+    //tramite @content possiamo andare ad aggiungere del codice solo all'interno di uno specifico caso in cui utilizzo mixin e include vediamo come:
+@mixin button($color, $border-width) // se dichiariamo il valore degli argomenti nel mixin creiamo gli argomenti di default
+        font-family: map-get($fonts, "body")
+        font-weight: 600
+        padding: 1rem
+        border: $border-width dotted map-get($colors, "primary" )
+        background-color: $color
+        &:hover
+            background-color: yellow
+            @content
+
+.button-blue
+    @include button(red ,2px)
+        box-shadow: 2px 2px 2px black // questo elemento verrà aggiunto solo al bottone in questione in aggiunta a tutte le regole del mixin incluso
+// @forwars funziona come @import
+//@at-root si usa per scrivere una regola css che venga letta come se fosse in cima al foglio di stile (:root) e che venga applicata in tutto il foglio ES:
+    @mixin that-mixin 
+        @at-root 
+            .container 
+            background-color: #fff
+            color: #333
+            padding: 20px
+.class
+        @include that-mixin
+//@debug è un istanza che ci permette di ritornare un valore in console per capire il valore di una variabile o una funzione
+@mixin inset-divider-offset($offset, $padding) 
+  $divider-offset: (2 * $padding) + $offset
+  @debug "divider offset: #{$divider-offset}" //ci ritornerà in console questo valore
+
+  margin-left: $divider-offset
+  width: calc(100% - #{$divider-offset})
+
+//FUNZIONI
+    // in sass possiamo utilizzare delle funzioni per creare un meccanismo logico riutilizzabile proprio come in javscript
+        //SYNTAX
+            @function calc-width($argomento1 , $argomento2)
+                $variabile: convert($argomento2, px)
+                $value: ($variabile - $argomento1) / 3
+                @return $value
+
+            .card
+                width: calc-width( 1000px, 2rem)
+
+    //@each può essere utilizzato per iterare comandi su una lista o una mappa scss
+
+    @each $name, $color in $colors //Il loop `@each` itera su ogni coppia chiave-valore nella mappa `$colors`.
+        .text-#{$name} // Per ogni coppia, viene creata una classe CSS con il nome ".text-" seguito dalla chiave,
+        color: $color // e viene impostata la proprietà di colore sul valore corrispondente.
+    //@if @else funzionano come in javascript @if condizione viene rispettata esegui un blocco di codice @else esegui un altro
+
+$background-color: #ffff;
+
+@function bg-color()
+    @if $background-color == #f5f5f5 
+        body 
+            @return background-color: $background-color
+    @else 
+        body
+            @return background-color: darken($background-color, 2)
+
+
+
+  
+
