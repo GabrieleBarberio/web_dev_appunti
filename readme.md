@@ -22,7 +22,7 @@
 - clona la repository in locale:
 
     ```sh
-    git clone https://github.com/daveinthahood/Lezioni-Javascript.git
+    git clone https://github.com/GabrieleBarberio/web_dev_appunti.git
     # Ora che hai ottenuto la tua copia
     ```
 
