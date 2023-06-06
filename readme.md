@@ -160,34 +160,6 @@ In questi appunti troverai il contributo di:
 
 <a href="https://github.com/GianmarcoP93?tab=repositories"><img style= "border-radius : 50%;" src="https://i.ibb.co/rmd9Ydk/2462fdbf-17a6-41e0-a662-d1479c51b073.jpg" alt="2462fdbf-17a6-41e0-a662-d1479c51b073" border="0"></a>
 
-Tutti i contributi sono accettati con grande amore e goia!
-<br/>
-<div>
-<h5 style = "font-weight: bold;"> Diventa un Contributor
-</h5>
-</div>
 
-
-Per contribuire alla repository:
-
-- Clona la repo come visto in precedenza.
-
-- Segui la convention di struttura delle repo!
-
-- Segui la convention di better comment utilizzata.
-
-- Crea un tuo branch con un bel nome (meglio se simpatico) con il comando:
-
-    ```sh
-    git checkout -b my_new_branch
-    ```
-
-- Scrivi, riedita, organizza gli appunti secondo la tua logica e pratica di studio.
-
-- Committa e pusha la repo con in aggiunta un readme.md con i tuoi dati (una propic, link al tuo github, e qualche info su di te)!
-
-- [Effettua una nuova pull request](https://help.github.com/articles/creating-a-pull-request/) descrivendo il tuo operato.
-
-- Accetteremo dopo esserci assicurati che il cambiamento sia corretto.
 
 Bless!
