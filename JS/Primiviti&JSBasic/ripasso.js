@@ -46,7 +46,7 @@ let ternOr1 = string3 < 5 || string4 == false ? " la variabile è maggiore di 5"
 // Array : indice ordinato di dati
 
 //SYNTAX
-//          [ 0,    1      ,   2   ,          3                ]
+//          [ 0,    1      ,   2   ,        .title                                               ]
 let array = [ 1, "stringa" , false, { key : "value", key2 : 3}, [  "gianmarco", "davide",] ]  
 
 // console.log(array.length);
@@ -62,15 +62,19 @@ let array = [ 1, "stringa" , false, { key : "value", key2 : 3}, [  "gianmarco", 
 
 //FOR SYNTAX
 
-//kw  ( dichiarazione indice ; condizione  ; incremento/decremento ){ corpo del ciclo }
-// let sum = 0; 
-// for (let i = 0; i <= 10; i++) {
-//     console.log("_______indice+1_______");
-//     console.log(sum + " sum prima del calcolo");
-//     console.log( i + " indice ");
-//     console.log(sum += i  ," calcolo") ;
-//     console.log(sum + " Dopo il calcolo");
-// }
+// kw  ( dichiarazione indice ; condizione  ; incremento/decremento ){ corpo del ciclo }
+let arr = [2,4,5,6]; 
+let sum = 0;
+for (let i = 0; i < arr.length ; i++) {
+    // console.log("_______indice+" + i+ "_______");
+    // console.log(sum + " sum prima del calcolo");
+    // console.log( i + " indice ");
+    // console.log(sum += i  ," calcolo") ;
+    // console.log(sum + " Dopo il calcolo");
+    console.log(arr[i]);
+    sum += arr[i];   
+}
+console.log(sum)
 
 // IF ELSE STATEMENT
 
