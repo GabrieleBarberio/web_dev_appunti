@@ -129,6 +129,3 @@ const { name, age, ...address } = person;
 console.log(name); // Output: 'Mario'
 console.log(age); // Output: 30
 console.log(address); // Output: { city: 'Roma', country: 'Italia' }
-// Il Destructuring è una potente caratteristica di JavaScript che semplifica l'estrazione dei valori da array e oggetti. Può essere utilizzato in vari contesti, 
-//come l'assegnazione di variabili, la passaggio di argomenti alle funzioni e altro ancora. Spero che questa guida ti sia stata utile per comprendere il concetto
-// di Destructuring in JavaScript.
