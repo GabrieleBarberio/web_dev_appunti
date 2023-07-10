@@ -9,25 +9,26 @@
 
 <br/>
 
-
->Benvenuto nei miei appunti di Web Developing!
+> Benvenuto nei miei appunti di Web Developing!
 
 > Per ottenere la repository sul tuo PC.
 
 <br/>
 
-## Setup &nbsp; 
+## Setup &nbsp;
+
 <br/>
 
 - clona la repository in locale:
 
-    ```sh
-    git clone https://github.com/GabrieleBarberio/web_dev_appunti.git
-    # Ora che hai ottenuto la tua copia
-    ```
+      ```sh
+      git clone https://github.com/GabrieleBarberio/web_dev_appunti.git
+      # Ora che hai ottenuto la tua copia
+      ```
 
-    <br/>
-<div align="center">
+      <br/>
+
+  <div align="center">
 
 > Ora che hai ottenuto la tua copia, puoi subito notare la struttura per directory!
 
@@ -41,13 +42,14 @@
 
 <div align="center">
 
-> Semplice no? 
+> Semplice no?
 
 > Ad ogni linguaggio corrisponde una cartella che contiene una nuova cartella a sua volta in base agli argomenti in cui vengono raggruppati appunti ed esempi!
 
 > Ma c'è ancora di più! Puoi utilizzare un estensione per migliorare la leggibilità!
 
 > ecco come fare:
+
 </div>
 
 <br/>
@@ -59,70 +61,70 @@
 
 <br/>
 
-- Installa <a href="https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments">Better Comment</a> in Visual Studio Code  
+- Installa <a href="https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments">Better Comment</a> in Visual Studio Code
 
 - Copia il mio set up di better comment:
 
-    ```sh
-   "better-comments.tags": [
-        
-        {
-            "tag": "!!",
-            "color": "#FF2D00",
-            "strikethrough": false,
-            "underline": false,
-            "backgroundColor": "#747401",
-            "bold": true,
-            "italic": false
-        },
-        {
-            "tag": "!",
-            "color": "#FF2D00",
-            "strikethrough": false,
-            "underline": false,
-            "backgroundColor": "trasparent",
-            "bold": true,
-            "italic": false
-        },
-        {
-            "tag": "?",
-            "color": "#3498DB",
-            "strikethrough": false,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": false,
-            "italic": false
-        },
-        {
-            "tag": "//",
-            "color": "#474747",
-            "strikethrough": true,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": false,
-            "italic": false
-        },
-        {
-            "tag": "+",
-            "color": "#FF8C00",
-            "strikethrough": false,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": false,
-            "italic": false
-        },
-        {
-            "tag": "*",
-            "color": "#98C379",
-            "strikethrough": false,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": false,
-            "italic": false
-        }
-    ```
+  ```sh
+  "better-comments.tags": [
 
-Ora goditi la fruibilità dei commenti di colore diverso in base al contesto! 
+      {
+          "tag": "!!",
+          "color": "#FF2D00",
+          "strikethrough": false,
+          "underline": false,
+          "backgroundColor": "#747401",
+          "bold": true,
+          "italic": false
+      },
+      {
+          "tag": "!",
+          "color": "#FF2D00",
+          "strikethrough": false,
+          "underline": false,
+          "backgroundColor": "trasparent",
+          "bold": true,
+          "italic": false
+      },
+      {
+          "tag": "?",
+          "color": "#3498DB",
+          "strikethrough": false,
+          "underline": false,
+          "backgroundColor": "transparent",
+          "bold": false,
+          "italic": false
+      },
+      {
+          "tag": "//",
+          "color": "#474747",
+          "strikethrough": true,
+          "underline": false,
+          "backgroundColor": "transparent",
+          "bold": false,
+          "italic": false
+      },
+      {
+          "tag": "+",
+          "color": "#FF8C00",
+          "strikethrough": false,
+          "underline": false,
+          "backgroundColor": "transparent",
+          "bold": false,
+          "italic": false
+      },
+      {
+          "tag": "*",
+          "color": "#98C379",
+          "strikethrough": false,
+          "underline": false,
+          "backgroundColor": "transparent",
+          "bold": false,
+          "italic": false
+      }
+  ```
+
+Ora goditi la fruibilità dei commenti di colore diverso in base al contesto!
 <br/>
 
 <div>
@@ -130,10 +132,10 @@ Ora goditi la fruibilità dei commenti di colore diverso in base al contesto!
 </h3>
 </div>
 
-| Linguaggio | Contenuti | File |
-|------------|-----------|------|
-| HTML + CSS + GIT| APPUNTI | file: .html .css .sass .pdf |
-| Javascript | APPUNTI E ESEMPI | file: .jpg .js .json |
+| Linguaggio       | Contenuti        | File                        |
+| ---------------- | ---------------- | --------------------------- |
+| HTML + CSS + GIT | APPUNTI          | file: .html .css .sass .pdf |
+| Javascript       | APPUNTI E ESEMPI | file: .jpg .js .json        |
 
 <br/>
 
@@ -153,13 +155,10 @@ Ora goditi la fruibilità dei commenti di colore diverso in base al contesto!
 </div>
 <br/>
 
-In questi appunti troverai il contributo di: 
+In questi appunti troverai il contributo di:
 
-
-##         GianmarcoP
+## GianmarcoP
 
 <a href="https://github.com/GianmarcoP93?tab=repositories"><img style= "border-radius : 50%;" src="https://i.ibb.co/rmd9Ydk/2462fdbf-17a6-41e0-a662-d1479c51b073.jpg" alt="2462fdbf-17a6-41e0-a662-d1479c51b073" border="0"></a>
-
-
 
 Bless!
